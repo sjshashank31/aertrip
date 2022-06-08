@@ -1,0 +1,72 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container  text-warning">
+
+     <form class="form" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6 bg-dark">
+
+                <div class="form-group">
+                    <label>Source Location</label>
+                    <input class="form-control" type="text" name="travel_source"
+                 value="{% if travel_details.source %}
+                 {{ travel_details.source }}
+                 {% else %} Please Enter Start Location
+                 {%endif%}">
+                </div>
+
+                <div class="form-group">
+                <label>Destination Location</label>
+                <input class="form-control" type="text" name="travel_destination" value="{% if travel_details.destination %}
+                    {{ travel_details.destination }}
+                       {% else %} Please Enter Destination Location
+                        {%endif%}">
+                </div>
+                <div class="form-group">
+                    <label>Travel Date</label>
+                    <input class="form-control" type="text" name="travel_date" value="{% if travel_details.date %}
+                    {{ travel_details.date }}
+                    {% else %} Please Enter Date of Travel
+                    {%endif%}">
+                </div>
+            </div>
+            <div class="col-6 bg-dark">
+
+                <div class="form-group">
+                    <label>Return Source Location</label>
+                    <input class="form-control" type="text" name="return_source"
+                 value="{% if return_details.source %}
+                 {{ return_details.source }}
+                 {% else %} Please Enter Return source Location
+                 {%endif%}">
+                </div>
+
+                <div class="form-group">
+                <label>Return Destination Location</label>
+                <input class="form-control" type="text" name="return_destination" value="{% if return_details.destination %}
+                    {{ return_details.destination }}
+                       {% else %} Please Enter Return Destination
+                        {%endif%}">
+                </div>
+                <div class="form-group">
+                    <label>Travel Date</label>
+                    <input class="form-control" type="text" name="travel_date" value="{% if return_details.date %}
+                    {{ return_details.date }}
+                    {% else %} Please Enter Date of Return
+                    {%endif%}">
+                </div>
+            </div>
+
+        </div>
+         <input type="submit" value="Book ticket">
+
+      </form>
+        </div>
+
+
+{% endblock %}
+
